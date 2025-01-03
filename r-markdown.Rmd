@@ -186,7 +186,9 @@ dplyr::count(model, sort = T) # create aggregate stats
 
 ggplot(data = mpg) + geom_point(mapping = aes(x = displ, y = hwy))
 
-cggplot(data = mpg) + geom_point(mapping = aes(x = displ, y = hwy, color = class))
+ggplot(data = mpg) + geom_point(mapping = aes(x = displ, y = hwy, color = class))
+
+ggplot(data = mpg) + geom_point(mapping = aes(x = displ, y = hwy, color = class)) + facet_wrap(~ class, nrow = 2)
 
 ggplot(data = mpg) + geom_point(mapping = aes(x = displ, y = hwy, color = class)) + facet_grid(drv ~ cyl)
 
