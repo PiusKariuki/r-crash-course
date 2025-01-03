@@ -200,3 +200,15 @@ ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + geom_point(mapping = aes
 
 ggplot(data = diamonds) + geom_bar(mapping = aes(x=cut)) 
 ```
+
+## Examples of EDA
+```{r}
+diamonds
+smaller <- diamonds %>% filter(carat < 3)
+
+ggplot(data = smaller, mapping = aes(x = carat)) + geom_histogram(binwidth = 0.3)
+
+ggplot(data = mpg) + geom_boxplot(mapping = aes(x = reorder(class, hwy, FUN = median), y = hwy))
+
+diamonds %>% count(color, cut, sort = T) %>% ggplot(mapping = aes(x = color, y = cut)) + geom_tile(mapping = aes(fill = n))
+```
